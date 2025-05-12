@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donateurs 💰</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header>
+    <h1>Liste des Donateurs 💸</h1>
+ </header>
+  <aside id="menu">
+    <button onclick="trierNom()">Tri alphabétique <b>A à Z</b></button>
+    <button onclick="trierMontant('asc')">Montant croissant ⬇</button>
+    <button onclick="trierMontant('desc')">Montant décroissant ⬆</button>
+    <button onclick="filtrerGenre('male')">Hommes ♂</button>
+    <button onclick="filtrerGenre('female')">Femmes ♀</button>
+    <button onclick="afficherTotalDons()">Montant total des dons 💰</button>
+    <p><strong>Total des dons :</strong> <span id="totalMontant" style="color: red;">0</span><span style="color: red;"> €</span></p>
+  </aside>
+
+  <main id="app">
+   
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
