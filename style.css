@@ -41,6 +41,7 @@ header h1 {
   cursor: pointer;
   font-size: 0.9rem;
   flex: 1 1 auto;
+  transition: background-color 0.3s ease;
 }
 
 #app {
@@ -88,4 +89,9 @@ header h1 {
   #menu button {
     width: 100%;
   }
+}
+
+/* Ajout uniquement de l'effet de survol */
+#menu button:hover {
+  background-color: #0056b3;
 }
