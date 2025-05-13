@@ -91,7 +91,6 @@ header h1 {
   }
 }
 
-/* Ajout uniquement de l'effet de survol */
 #menu button:hover {
   background-color: #0056b3;
 }
