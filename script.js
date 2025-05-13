@@ -1,82 +1,20 @@
-let donateurs = [
-  {
-    nom: "Chloé",
-    genre: "female",
-    photo: "IMG/femme2.jpg"
-  },
-  {
-    nom: "Rachel",
-    genre: "female",
-    photo: "IMG/femme3.jpg"
-  },
-  {
-    nom: "Marine",
-    genre: "female",
-    photo: "IMG/femme4.jpg"
-  },
-  {
-    nom: "Abdel",
-    genre: "male",
-    photo: "IMG/homme2.jpg"
-  },
-  {
-    nom: "Fatima",
-    genre: "female",
-    photo: "IMG/femme1.jpg"
-  },
-  {
-    nom: "Bilel",
-    genre: "male",
-    photo: "IMG/homme3.jpg"
-  },
-  {
-    nom: "Louise",
-    genre: "female",
-    photo: "IMG/femme5.jpg"
-  },
-  {
-    nom: "Anthony",
-    genre: "male",
-    photo: "IMG/homme4.jpg"
-  },
-  {
-    nom: "Paul",
-    genre: "male",
-    photo: "IMG/homme1.jpg"
-  },
-  {
-    nom: "Yasmine",
-    genre: "female",
-    photo: "IMG/femme6.jpg"
-  },
-  {
-    nom: "Jean",
-    genre: "male",
-    photo: "IMG/homme5.jpg"
-  },
-  {
-    nom: "Luc",
-    genre: "male",
-    photo: "IMG/homme7.jpg"
-  }
-];
+let donateurs = [];
 
-Promise.all(
-  donateurs.map(donateur =>
-    fetch('https://randomuser.me/api/?results=50') 
-      .then(res => res.json())
-      .then(data => {
-        const user = data.results[0];
-        donateur.montant = Math.floor(Math.random() * 200) + 1; 
-        donateur.telephone = user.phone;
-        donateur.adresse = `${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country}`; // Adresse complète
-        return donateur;
-      })
-  )
-).then(donateursAvecMontant => {
-  donateurs = donateursAvecMontant;
-  afficherDonateurs(donateurs);
-});
+fetch("https://randomuser.me/api/?results=50")
+  .then(res => res.json())
+  .then(data => {
+    donateurs = data.results.map(user => ({
+      nom: user.name.first,
+      genre: user.gender,
+      photo: user.picture.large,
+      telephone: user.phone,
+      adresse: `${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country}`,
+      montant: Math.floor(Math.random() * 200) + 1
+    }));
+
+    afficherDonateurs(donateurs);
+  })
+  .catch(err => console.error("Erreur API :", err));
 
 function afficherDonateurs(liste) {
   const app = document.getElementById('app');
@@ -93,8 +31,8 @@ function afficherDonateurs(liste) {
 }
 
 function afficherTotalDons() {
-  const totalDons = donateurs.reduce((acc, donateur) => acc + donateur.montant, 0);
-  document.getElementById('totalMontant').innerText = totalDons; 
+  const totalDons = donateurs.reduce((acc, d) => acc + d.montant, 0);
+  document.getElementById('totalMontant').innerText = totalDons;
 }
 
 function filtrerGenre(sexe) {
@@ -115,4 +53,3 @@ function trierNom() {
   );
   afficherDonateurs(triés);
 }
-
