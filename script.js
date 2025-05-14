@@ -53,3 +53,13 @@ function trierNom() {
   );
   afficherDonateurs(triés);
 }
+
+function rechercherDonateur() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const resultat = donateurs.filter(d => d.nom.toLowerCase().includes(query));
+  afficherDonateurs(resultat);
+}
+
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}

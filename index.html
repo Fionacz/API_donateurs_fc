@@ -11,6 +11,15 @@
     <h1>Liste des Donateurs 💸</h1>
  </header>
   <aside id="menu">
+    <label class="theme-toggle">
+      <input type="checkbox" onchange="toggleDarkMode()" />
+      🌗 Thème sombre
+    </label>
+
+&nbsp;
+
+    <input type="text" id="searchInput" placeholder="🔍 Rechercher un nom..." oninput="rechercherDonateur()" />
+
     <button onclick="trierNom()">Tri alphabétique <b>A à Z</b></button>
     <button onclick="trierMontant('asc')">Montant croissant ⬇</button>
     <button onclick="trierMontant('desc')">Montant décroissant ⬆</button>
@@ -27,4 +36,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
