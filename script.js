@@ -4,12 +4,13 @@ fetch("https://randomuser.me/api/?results=50")
   .then(res => res.json())
   .then(data => {
     donateurs = data.results.map(user => ({
-      nom: user.name.first,
+      nom: `${user.name.first} ${user.name.last}`,  
       genre: user.gender,
       photo: user.picture.large,
       telephone: user.phone,
       adresse: `${user.location.street.name}, ${user.location.city}, ${user.location.state}, ${user.location.country}`,
-      montant: Math.floor(Math.random() * 200) + 1
+      montant: Math.floor(Math.random() * 200) + 1,
+      email: user.email  
     }));
 
     afficherDonateurs(donateurs);
@@ -21,16 +22,19 @@ function afficherDonateurs(liste) {
   app.innerHTML = liste.map(d =>
     `<div class="donateur">
       <img src="${d.photo}" alt="${d.nom}">
-      <h2 class="default-color">${d.nom}</h2>
-      <p><strong>Genre :</strong> ${d.genre === 'male' ? 'Homme' : 'Femme'} 
-        <span class="gender-pastille ${d.genre === 'male' ? 'male' : 'female'}"></span>
-      </p>
-      <p><strong>📞 Téléphone :</strong> ${d.telephone}</p>
-      <p><strong>📍 Adresse :</strong> ${d.adresse}</p>
+      <h2 class="default-color">
+        <span class="prenom">${d.nom.split(' ')[0]}</span> 
+        <span class="nom">${d.nom.split(' ')[1]}</span>
+      </h2>
+      <p><strong>📧 Email :</strong> <span class="email">${d.email}</span></p>
+      <span class="gender-pastille ${d.genre === 'male' ? 'male' : 'female'}"></span>
+      <p><strong>📞 Téléphone :</strong> <span class="telephone">${d.telephone}</span></p> <!-- Ajout de la classe 'telephone' -->
+      <p><strong>📍 Adresse :</strong> <span class="adresse">${d.adresse}</span></p> <!-- Ajout de la classe 'adresse' -->
       <p><strong>Montant :</strong> <span style="color: red;">${d.montant} €</span></p>
     </div>`
   ).join('');
 }
+
 
 function afficherTotalDons() {
   const totalDons = donateurs.reduce((acc, d) => acc + d.montant, 0);

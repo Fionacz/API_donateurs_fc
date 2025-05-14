@@ -193,3 +193,34 @@ h2.default-color {
 body.dark-mode h2.default-color {
   color:#b622a5;
 }
+
+.email {
+  font-size: 0.7rem;  
+  color:#8f8f8f ;        
+  display: block;     
+  margin-top: 5px;    
+}
+
+.prenom, .nom {
+  display: inline-block;
+  font-size: 1.3rem;     
+  margin-right: 2px;
+  line-height: 1.2;
+}
+
+.donateur p {
+  font-size: 0.8rem;
+}
+
+.donateur p strong {
+  font-size: 0.80rem; 
+}
+
+.donateur p span.email {
+  font-size: 0.8rem; 
+}
+
+.donateur p span.telephone, .donateur p span.adresse {
+  font-size: 0.8rem;  
+  color: #8f8f8f;     
+}
