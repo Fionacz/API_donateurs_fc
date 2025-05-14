@@ -21,11 +21,13 @@ function afficherDonateurs(liste) {
   app.innerHTML = liste.map(d =>
     `<div class="donateur">
       <img src="${d.photo}" alt="${d.nom}">
-      <h2 style="color: blue">${d.nom}</h2> 
-      <p><strong>Genre :</strong> ${d.genre === 'male' ? 'Homme' : 'Femme'}</p>
-      <p><strong>📞 Téléphone :</strong> ${d.telephone}</p> 
-      <p><strong>📍 Adresse :</strong> ${d.adresse}</p> 
-      <p><strong>Montant :</strong> <span style="color: red;">${d.montant} €</span></p> 
+      <h2 class="default-color">${d.nom}</h2>
+      <p><strong>Genre :</strong> ${d.genre === 'male' ? 'Homme' : 'Femme'} 
+        <span class="gender-pastille ${d.genre === 'male' ? 'male' : 'female'}"></span>
+      </p>
+      <p><strong>📞 Téléphone :</strong> ${d.telephone}</p>
+      <p><strong>📍 Adresse :</strong> ${d.adresse}</p>
+      <p><strong>Montant :</strong> <span style="color: red;">${d.montant} €</span></p>
     </div>`
   ).join('');
 }
