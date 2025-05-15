@@ -1,29 +1,33 @@
+/* Style général pour le corps de la page */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  padding-top: 60px;
+  padding-top: 60px;  
   background-color: #f0f0f0;
   color: #333;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s; /
 }
 
+/* Style de l'entête (header) */
 header {
   background: linear-gradient(145deg, #008f83, #a1edef); 
   color: white;
   text-align: center;
   padding: 10px 0;
-  position: fixed;
+  position: fixed;  
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1000;  
 }
 
+/* Style du titre 1 */
 header h1 {
   margin: 0;
   font-size: 1.5rem;
 }
 
+/* Style du menu principal */
 #menu {
   display: flex;
   flex-wrap: wrap;
@@ -35,6 +39,7 @@ header h1 {
   z-index: 1;
 }
 
+/* Style pour l'input de texte dans le menu */
 #menu input[type="text"] {
   padding: 10px;
   border-radius: 6px;
@@ -45,6 +50,7 @@ header h1 {
   margin-bottom: 10px;
 }
 
+/* Style pour les boutons dans le menu */
 #menu button {
   padding: 10px 15px;
   border: none;
@@ -54,25 +60,28 @@ header h1 {
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
+  transition: all 0.3s ease; 
   display: flex;
   align-items: center;
   gap: 8px;
   justify-content: center;
 }
 
+/* Effet au survol sur les boutons */
 #menu button:hover {
-  background: linear-gradient(145deg, #008f83, #a1edef); 
-  transform: translateY(-1px);
+  background: linear-gradient(145deg, #008f83, #a1edef);
+  transform: translateY(-1px); 
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Effet au clic du bouton */
 #menu button:active {
-  transform: scale(0.98);
+  transform: scale(0.98); 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
+/* Style du toggle pour changer le thème */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -81,6 +90,7 @@ header h1 {
   font-size: 0.9rem;
 }
 
+/* Style général de l'application */
 #app {
   padding: 1rem;
   display: flex;
@@ -89,6 +99,7 @@ header h1 {
   gap: 1rem;
 }
 
+/* Style des cartes des donateurs */
 .donateur {
   background: white;
   border: 1px solid #ddd;
@@ -96,11 +107,12 @@ header h1 {
   width: 200px;
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
   transition: background-color 0.3s, border-color 0.3s;
-  position: relative; 
+  position: relative;
 }
 
+/* Style pour l'image du donateur */
 .donateur img {
   width: 100px;
   height: 100px;
@@ -108,25 +120,29 @@ header h1 {
   object-fit: cover;
 }
 
+/* Style pour l'indicateur de genre dans la carte */
 .donateur .gender-pastille {
   width: 15px;
   height: 15px;
   border-radius: 50%;
   display: inline-block;
   position: absolute;
-  top: 20px;   
-  right: 20px; 
+  top: 20px;
+  right: 20px;
   margin: 0;
 }
 
+/* Pastille bleue pour les hommes */
 .donateur .gender-pastille.male {
-  background-color: #4f07f5; 
+  background-color: #4f07f5;
 }
 
+/* Pastille rose pour les femmes */
 .donateur .gender-pastille.female {
-  background-color: #f31e9e; 
+  background-color: #f31e9e;
 }
 
+/* Media query pour écrans plus larges */
 @media (min-width: 768px) {
   #menu {
     flex-direction: column;
@@ -136,11 +152,11 @@ header h1 {
     top: 60px;
     left: 0;
     height: calc(100vh - 60px);
-    overflow-y: auto;
+    overflow-y: auto; 
   }
 
   #app {
-    margin-left: 240px;
+    margin-left: 240px; 
     justify-content: flex-start;
   }
 
@@ -149,78 +165,94 @@ header h1 {
   }
 }
 
+/* Mode sombre */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
 }
 
+/* Entête en mode sombre */
 body.dark-mode header {
-  background: linear-gradient(145deg, #731368, #eac2e1); 
+  background: linear-gradient(145deg, #731368, #eac2e1);
 }
 
+/* Menu en mode sombre */
 body.dark-mode #menu {
   background-color: #1f1f1f;
 }
 
+/* Carte de donateur en mode sombre */
 body.dark-mode .donateur {
   background-color: #2c2c2c;
   border-color: #9b9a9a;
 }
 
+/* Boutons du menu en mode sombre */
 body.dark-mode #menu button {
-  background: linear-gradient(145deg,#731368, #eac2e1 ); 
+  background: linear-gradient(145deg, #731368, #eac2e1);
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
+/* Effet au survol des boutons en mode sombre */
 body.dark-mode #menu button:hover {
-  background: linear-gradient(145deg, #731368, #eac2e1); 
+  background: linear-gradient(145deg, #731368, #eac2e1);
 }
 
+/* Fond d'application en mode sombre */
 body.dark-mode #app {
   background-color: #000000;
 }
 
+/* Carte de donateur en mode sombre */
 body.dark-mode .donateur {
   background-color: #333;
   border-color: #000000;
 }
 
+/* Couleur du texte pour les éléments h2 */
 h2.default-color {
   color: #00b0a2;
 }
 
+/* Couleur du texte en mode sombre pour les éléments h2 */
 body.dark-mode h2.default-color {
-  color:#b622a5;
+  color: #b622a5;
 }
 
+/* Style pour l'adresse e-mail dans la carte de donateur */
 .email {
-  font-size: 0.7rem;  
-  color:#8f8f8f ;        
-  display: block;     
-  margin-top: 5px;    
+  font-size: 0.7rem;
+  color: #8f8f8f;
+  display: block;
+  margin-top: 5px;
 }
 
+/* Style des prénoms et noms des donateurs */
 .prenom, .nom {
   display: inline-block;
-  font-size: 1.3rem;     
+  font-size: 1.3rem;
   margin-right: 2px;
   line-height: 1.2;
 }
 
+/* Style général des paragraphes dans la carte de donateur */
 .donateur p {
   font-size: 0.8rem;
 }
 
+/* Style des éléments en gras dans la carte de donateur */
 .donateur p strong {
-  font-size: 0.80rem; 
+  font-size: 0.80rem;
 }
 
+/* Style de l'e-mail dans la carte de donateur */
 .donateur p span.email {
-  font-size: 0.8rem; 
+  font-size: 0.8rem;
 }
 
+/* Style pour le téléphone et l'adresse dans la carte de donateur */
 .donateur p span.telephone, .donateur p span.adresse {
-  font-size: 0.8rem;  
-  color: #8f8f8f;     
+  font-size: 0.8rem;
+  color: #8f8f8f;
 }

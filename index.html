@@ -7,28 +7,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <header>
+
+  <!-- En-tête principal de la page -->
+  <header>
     <h1>Liste des Donateurs 💸</h1>
- </header>
+  </header>
+
+  <!-- Menu latéral (à gauche) avec plusieurs options de tri et de filtrage -->
   <aside id="menu">
+    <!-- Toggle pour le changement de thème (sombre/claire) -->
     <label class="theme-toggle">
       <input type="checkbox" onchange="toggleDarkMode()" />
       🌗 Thème sombre
     </label>
 
-&nbsp;
+    &nbsp;
 
+    <!-- Champ de recherche pour filtrer les donateurs par nom -->
     <input type="text" id="searchInput" placeholder="🔍 Rechercher un nom..." oninput="rechercherDonateur()" />
 
+    <!-- Boutons pour effectuer différentes actions sur la liste des donateurs -->
     <button onclick="trierNom()">Tri alphabétique <b>A à Z</b></button>
     <button onclick="trierMontant('asc')">Montant croissant ⬇</button>
     <button onclick="trierMontant('desc')">Montant décroissant ⬆</button>
     <button onclick="filtrerGenre('male')">Hommes ♂</button>
     <button onclick="filtrerGenre('female')">Femmes ♀</button>
     <button onclick="afficherTotalDons()">Montant total des dons 💰</button>
+
+    <!-- Affichage du total des dons -->
     <p><strong>Total des dons :</strong> <span id="totalMontant" style="color: red;">0</span><span style="color: red;"> €</span></p>
   </aside>
 
+  <!-- Section principale qui contiendra la liste des donateurs -->
   <main id="app">
    
   </main>
